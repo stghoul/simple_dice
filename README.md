@@ -1,7 +1,7 @@
-# simple_dice
-Simple dice script for DND
+# Simple Dice
+Simple dice script for DND games.
 
-Its simple: rignt click on a script - run with powershell.
+Its really simple: rignt click on a script - run with powershell.
 And then just click on a buttons, you will get it.
 
 # Простые кости
