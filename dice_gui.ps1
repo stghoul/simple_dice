@@ -709,30 +709,31 @@ function Show-dice1_psf {
 function Roll-Dice($count, $dice) {
 	
 	
-	# generating separate variables for each dice
+	#creating some variables
 	$dice_list = @()
-	$turns = Get-Random -Maximum 20 -Minimum 10
+	$turns = Get-Random -Maximum 25 -Minimum 10
 	$label2.text = "[ - ]"
 	$nl = [System.Environment]::NewLine
+	New-Variable -name roll_string
 	
+	# generating separate variables for each dice
 	for ($i = 1; $i -le $count; $i++) {
 		New-Variable -name "dice$i"
 		$dice_list += "dice$i"
 	}
 	
-	New-Variable -name roll_string
 	#rolling dice
 	for ($i = 1; $i -le $turns; $i++) {
 		Clear-Variable -name roll_string
 		foreach ($d in $dice_list) {
-			Set-Variable -name $d -value (Get-Random -Minimum 1 -Maximum $dice)
+			Set-Variable -name $d -value (Get-Random -Minimum 1 -Maximum ($dice+1))
 			$roll_string += "[" + (Get-Variable $d).value + "]"
 		}
 		$label1.Text = $roll_string
-		
 		start-sleep -m 200
 	}
 	
+	#finalising roll
 	New-Variable -name summ
 	foreach ($d in $dice_list) {
 		$summ += (Get-Variable $d).value
