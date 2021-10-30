@@ -623,7 +623,7 @@ function Show-dice1_psf {
 	#
 	# textbox3
 	#
-	$textbox3.Font = 'Microsoft Sans Serif, 16pt'
+	$textbox3.Font = 'Microsoft Sans Serif, 15pt'
 	$textbox3.Location = '75, 151'
 	$textbox3.Name = 'textbox3'
 	$textbox3.Size = '33, 32'
@@ -652,7 +652,7 @@ function Show-dice1_psf {
 	$buttonRoll.UseCompatibleTextRendering = $True
 	$buttonRoll.UseVisualStyleBackColor = $True
 	$buttonRoll.add_Click({
-		Roll-Dice -count $textbox2.Text -dice $textbox3.Text
+		Roll-Dice -count $($textbox2.Text -as [int]) -dice $($textbox3.Text -as [int])
 	})
 	#
 	# textbox1
