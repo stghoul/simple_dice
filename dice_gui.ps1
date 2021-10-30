@@ -744,6 +744,11 @@ function Roll-Dice($count, $dice) {
 	$textbox1.text += "Result: " + $roll_string + $nl
 	$textbox1.text += "Summ: " + $summ + $nl
 	$textbox1.text += "===========" + $nl
+	
+	#scrolling log
+	$textbox1.SelectionStart = $textbox1.Text.Length
+	$textbox1.ScrollToCaret()
+	
 	return
 }
 
